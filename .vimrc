@@ -1,7 +1,14 @@
+let mapleader="\<Space>"
 
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
+call plug#begin('~/.vim/plugged')
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
+call plug#end()
+nnoremap <leader><leader> :Files<cr>
+map <C-n> :NERDTreeToggle<CR>
+nnoremap <silent> <leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+execute pathogen#infect()
 " Last change:	2017 Sep 20
 "
 " To use it, copy it to
@@ -39,7 +46,7 @@ if has("autocmd")
   augroup vimrcEx
   au!
 
-  " For all text files set 'textwidth' to 78 characters.
+" For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
 
   augroup END
@@ -70,4 +77,3 @@ set shiftwidth=2    " Indents will have a width of 4
 set softtabstop=2   " Sets the number of columns for a TAB
 
 set expandtab       " Expand TABs to spaces
-set gfn=Monaco:h13
