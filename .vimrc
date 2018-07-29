@@ -5,7 +5,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf.vim'
 call plug#end()
 nnoremap <leader><leader> :Files<cr>
-map <C-n> :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <silent> <leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 execute pathogen#infect()
