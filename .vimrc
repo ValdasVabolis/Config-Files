@@ -3,6 +3,7 @@ let mapleader="\<Space>"
 call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
+  Plug 'https://github.com/danro/rename.vim'
 call plug#end()
 nnoremap <leader><leader> :Files<cr>
 nnoremap <leader>n :NERDTreeToggle<CR>
@@ -77,3 +78,11 @@ set shiftwidth=2    " Indents will have a width of 4
 set softtabstop=2   " Sets the number of columns for a TAB
 
 set expandtab       " Expand TABs to spaces
+syntax on
+set noundofile
+set noswapfile
+set backupdir-=.
+set backupdir^=~/tmp,/tmp
+" ctrl+c to toggle highlight.
+let hlstate=0
+nnoremap <leader>h :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<cr>
