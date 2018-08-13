@@ -4,6 +4,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
   Plug 'https://github.com/danro/rename.vim'
+  Plug 'https://github.com/tpope/vim-rails'
+  Plug 'https://github.com/machakann/vim-highlightedyank'
 call plug#end()
 nnoremap <leader><leader> :Files<cr>
 nnoremap <leader>n :NERDTreeToggle<CR>
@@ -86,3 +88,4 @@ set backupdir^=~/tmp,/tmp
 " ctrl+c to toggle highlight.
 let hlstate=0
 nnoremap <leader>h :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<cr>
+colorscheme flattened_light
