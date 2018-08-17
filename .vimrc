@@ -7,6 +7,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'https://github.com/tpope/vim-rails'
   Plug 'https://github.com/machakann/vim-highlightedyank'
   Plug 'https://github.com/andymass/vim-matchup'
+  Plug 'mattn/emmet-vim'
 call plug#end()
 nnoremap <leader><leader> :Files<cr>
 nnoremap <leader>n :NERDTreeToggle<CR>
