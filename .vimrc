@@ -9,6 +9,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'https://github.com/andymass/vim-matchup'
   Plug 'mattn/emmet-vim'
   Plug 'https://github.com/tpope/vim-unimpaired'
+  Plug 'https://github.com/alvan/vim-closetag'
 call plug#end()
 nnoremap <leader><leader> :Files<cr>
 nnoremap <leader>n :NERDTreeToggle<CR>
@@ -90,5 +91,41 @@ set backupdir-=.
 set backupdir^=~/tmp,/tmp
 " ctrl+c to toggle highlight.
 let hlstate=0
+let NERDTreeShowHidden=1
 nnoremap <leader>h :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<cr>
 colorscheme flattened_light
+" trim trailing whitespace on save
+autocmd BufWritePre *.py :%s/\s\+$//e
+
+" filenames like *.xml, *.html, *.xhtml, ...
+" These are the file extensions where this plugin is enabled.
+"
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml, *.erb'
+
+" filenames like *.xml, *.xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+"
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+
+" filetypes like xml, html, xhtml, ...
+" These are the file types where this plugin is enabled.
+"
+let g:closetag_filetypes = 'html,xhtml,phtml'
+
+" filetypes like xml, xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+"
+let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+
+" integer value [0|1]
+" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
+"
+let g:closetag_emptyTags_caseSensitive = 1
+
+" Shortcut for closing tags, default is '>'
+"
+let g:closetag_shortcut = '>'
+
+" Add > at current position without closing the current tag, default is ''
+"
+let g:closetag_close_shortcut = '<leader>>'
